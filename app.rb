@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/todo'
 
 class TodoListManager < Sinatra::Base
     get '/' do

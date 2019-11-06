@@ -1,3 +1,5 @@
+require 'pg'
+
 class Todo
     def self.all
         if ENV['ENVIRONMENT'] == 'todo_test'
@@ -6,7 +8,7 @@ class Todo
             connection = PG.connect(dbname: 'to-do-list_database')
         end
 
-        result = connection.exec("SELECT * FROM todolist_test_table")
+        result = connection.exec("SELECT * FROM todolist_table")
         result.map { |todo| todo['todo_item'] }
     end
 end

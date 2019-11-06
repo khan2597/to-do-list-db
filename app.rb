@@ -11,6 +11,14 @@ class TodoListManager < Sinatra::Base
         erb :"/todo-items/items"
     end
 
+    post '/todo-items' do
+        todo-item = params['todo-item']
+        deadline = params['deadline']
+        connection = PG.connect(dbname: 'todo_test')
+        connection.exec("ISERT INTO todolist_table (todo_item) VALUES('#{todo-item}') (deadline) VALUES('#{deadline}')")
+        redirect '/todo-items'
+    end
+
     get '/todo-items/new' do
         erb :"/todo-items/new-item"
     end

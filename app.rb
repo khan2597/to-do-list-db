@@ -5,8 +5,9 @@ class TodoListManager < Sinatra::Base
         'hello world'
     end
 
-    get '/todo-items' do
-        
+    get '/todo-items/items' do
+        @todo = Todo.all
+        erb :"/todo-items/items"
     end
 
 end

@@ -14,8 +14,8 @@ describe Todo do
 
         todo = Todo.all
 
-        expect(todolist_test_table).to have_content 'Go to the shops'
-        expect(todolist_test_table).to have_content 'Go to the petrol station'
-        expect(todolist_test_table).to have_content 'Go home'        
+        expect(todo).to include 'Go to the shops'
+        expect(todo).to include 'Go to the petrol station'
+        expect(todo).to include 'Go home'    
     end
 end

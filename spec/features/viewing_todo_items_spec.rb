@@ -6,7 +6,7 @@ feature 'Viewing todo items' do
         connection.exec("INSERT INTO todolist_test_table VALUES(2, 'Go to the petrol station', '2019-11-13')")
         connection.exec("INSERT INTO todolist_test_table VALUES(3, 'Go home', '2019-11-13')")
 
-        visit('/todo-items')
+        visit('/todo-items/items')
 
         expect(page).to have_content 'Go to the shops'
         expect(page).to have_content 'Go to the petrol station'

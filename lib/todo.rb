@@ -2,7 +2,7 @@ require 'pg'
 
 class Todo
     def self.all
-        if ENV['ENVIRONMENT'] == 'todo_test'
+        if ENV['RACK_ENV'] == 'test'
             connection = PG.connect(dbname: 'todo_test')
         else
             connection = PG.connect(dbname: 'to-do-list_database')

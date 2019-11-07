@@ -1,6 +1,6 @@
 feature 'Adding a new todo-item' do
     scenario 'A user can add a new item to the todolist database' do
-        visit('/todo-items/new-item')
+        visit('/todo-items/new')
         fill_in('todo-item', with: 'Write some tests')
         fill_in('deadline', with: '2019-11-10')
         click_button('Submit')

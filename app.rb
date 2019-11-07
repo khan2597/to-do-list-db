@@ -7,15 +7,15 @@ class TodoListManager < Sinatra::Base
     end
 
     get '/todo-items' do
-        @todo = Todo.all
+        @todos = Todo.all
         erb :"/todo-items/items"
     end
 
     post '/todo-items' do
-        todo-item = params['todo-item']
+        todo_item = params['todo-item']
         deadline = params['deadline']
         connection = PG.connect(dbname: 'todo_test')
-        connection.exec("ISERT INTO todolist_table (todo_item) VALUES('#{todo-item}') (deadline) VALUES('#{deadline}')")
+        connection.exec("INSERT INTO todolist_table (todo_item, deadline) VALUES('#{todo_item}', '#{deadline}') RETURNING id, todo_item, deadline")
         redirect '/todo-items'
     end
 
@@ -23,4 +23,5 @@ class TodoListManager < Sinatra::Base
         erb :"/todo-items/new-item"
     end
 
+    run! if app_file == $0
 end

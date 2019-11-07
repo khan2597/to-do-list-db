@@ -100,7 +100,7 @@ RSpec.configure do |config|
 
   require_relative './setup_test_database'
 
-  ENV['ENVIRONMENT'] = 'todo_test'
+  ENV['ENVIRONMENT'] = 'test'
 
   RSpec.configure do |config|
     config.before(:each) do

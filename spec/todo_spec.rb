@@ -18,4 +18,11 @@ describe Todo do
         expect(todo).to include 'Go to the petrol station'
         expect(todo).to include 'Go home'    
     end
+
+    describe '.add' do
+        return 'it creates a new todo_item' do
+            Todo.create(todo_item: 'Watch football', deadline: '2019-11-13')
+            expect(Todo.all).to include 'Watch football'
+        end
+    end
 end
